@@ -33,7 +33,7 @@ Init Step ${1} [${2}] -- ${3}
 EOF
 }
 
-SUPERSET_INIT_COMPLETE_FILE="/app/docker/superset_init_complete.txt"
+SUPERSET_INIT_COMPLETE_FILE="/app/superset/superset_init_complete.txt"
 
 # Determine if we should apply the Superset init steps
 if [ ! -f ${SUPERSET_INIT_COMPLETE_FILE} ]; then
