@@ -33,7 +33,7 @@ Init Step ${1} [${2}] -- ${3}
 EOF
 }
 
-SUPERSET_INIT_COMPLETE_FILE=".superset/superset_init_complete.txt"
+SUPERSET_INIT_COMPLETE_FILE="/app/docker/superset_init_complete.txt"
 
 # Determine if we should apply the Superset init steps
 if [ ! -f ${SUPERSET_INIT_COMPLETE_FILE} ]; then
@@ -45,7 +45,7 @@ else
 fi
 
 # Create a superset config file with a secure SECRET_KEY if it isn't present
-python -c "import superset_config" || echo "SECRET_KEY='$(openssl rand -base64 42)'" >superset_config.py
+python -c "import superset_config" || echo "SECRET_KEY='$(openssl rand -base64 42)'" >/tmp/superset_config.py
 
 # Start superset
 echo_step "1" "Starting" "Start Superset"
